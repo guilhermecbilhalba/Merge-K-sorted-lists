@@ -41,7 +41,11 @@ struct listNode_t* UnifyList( struct listNode_t* l1, struct listNode_t* l2 ) {
         }
         tail = tail->next;
     }
-    tail->next = ( l1 ? l1 : l2 );
+    if ( l1 )
+    tail->next = l1;
+else
+    tail->next = l2;
+
     return dummy.next;
 }
 
@@ -100,3 +104,4 @@ int main( void ) {
     FreeLista( result );
     return 0;
 }
+
